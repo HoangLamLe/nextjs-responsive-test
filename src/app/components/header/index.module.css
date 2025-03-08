@@ -1,0 +1,187 @@
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 90px;
+  z-index: 99;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.headerContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 90px;
+  flex-direction: row;
+  background-image: linear-gradient(179.5deg, #00000080 10%, #0000 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 340px;
+}
+
+.logo {
+  width: auto;
+  height: 64px;
+}
+
+.iconMore {
+  height: 80px;
+  cursor: pointer;
+}
+
+.menuList {
+  height: 90px;
+  display: flex;
+  width: 50vw;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 700px;
+}
+
+.iconClose {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.menuItem {
+  color: #ffffff80;
+  cursor: pointer;
+  font-size: 14.75px;
+  line-height: 90px;
+  font-family: PingFang SC, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  letter-spacing: 0.5px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  font-weight: 700;
+}
+
+.active {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.moreIcon {
+  height: 20px;
+  display: none;
+}
+
+.iconRight {
+  display: none;
+}
+
+.show {
+  display: none;
+}
+
+.languageMenu {
+  display: flex;
+  flex-direction: column;
+}
+
+.border {
+  background-color: #C4C4C4;
+  height: 1px;
+  width: 100%;
+}
+
+.languageOption {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.languageOption:hover {
+  background-color: #eeeeee;
+}
+
+.iconCheck {
+  width: 24px;
+}
+
+@media (max-width: 1400px) {
+  .headerContainer {
+    padding: 0 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .languageSelector {
+    display: block;
+    position: fixed;
+    border: none;
+    top: 10px;
+    left: 10px;
+  }
+
+  .headerContainer {
+    padding: 0 20px;
+  }
+
+  .iconClose {
+    display: block;
+  }
+
+  .logo {
+    height: 30px;
+    width: auto;
+  }
+
+  .iconRight {
+    display: block;
+  }
+
+  .menuList {
+    display: none;
+    padding: 30px 20px 0 20px;
+    position: relative;
+  }
+
+  .moreIcon {
+    display: flex;
+  }
+
+  .menuItem {
+    color: #000000;
+    height: 48px;
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    align-items: center;
+  }
+
+  .languageSelector {
+    border: none;
+  }
+
+  .headerContainer {
+    margin: 0;
+  }
+
+  .show {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    color: #000000;
+    background: white;
+  }
+}

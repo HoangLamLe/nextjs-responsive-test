@@ -1,0 +1,141 @@
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.font-white-center {
+  color: white;
+  text-align: center;
+}
+
+.banner {
+  width: 100vw;
+  height: 1000px;
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 10, 255, 0.5) 0%,
+      rgba(0, 0, 0, 0) 41.57%
+    ),
+    radial-gradient(
+      27.72% 27.79% at 50.81% 68.15%,
+      #210544 0%,
+      rgba(23, 5, 68, 0.71) 50.52%,
+      rgba(23, 5, 68, 0) 100%
+    ),
+    url("/assets/background.svg");
+  background-size: cover;
+  background-position: center;
+  clip-path: url(#smoothEllipseBottom);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerTitle {
+  font-size: 80px;
+  font-weight: 900;
+}
+
+.bannerTitle,
+.title {
+  color: white;
+  text-align: center;
+}
+
+.time {
+  background: white;
+  width: 750px;
+  padding: 30px;
+  border-radius: 20px;
+  column-gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.textTime {
+  font-size: 60px;
+  font-weight: 900;
+}
+
+.title {
+  font-size: 18px;
+  margin-top: 76px;
+  max-width: 560px;
+}
+
+.customBox {
+  height: 56px;
+  margin-top: 32px;
+  width: 560px;
+  padding: 10px;
+  border-radius: 10px;
+  background: white;
+  display: flex;
+  align-items: center;
+}
+
+.customBox input {
+  flex: 1;
+  height: 56px;
+  outline: none;
+  border: none;
+}
+
+.fixedPosition {
+  position: absolute;
+  bottom: 20px;
+  height: auto;
+  width: 938px;
+  left: -80px;
+  z-index: 999;
+}
+
+@media (max-width: 1400px) {
+  .fixedPosition {
+    width: 700px;
+    bottom: -150px;
+  }
+  .title {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .bannerTitle {
+    font-size: 40px;
+  }
+  .title {
+    max-width: 90%;
+  }
+
+  .fixedPosition {
+    position: unset;
+    height: 351px;
+    width: 351px;
+    margin: 0 auto;
+    margin-top: -150px;
+  }
+
+  .time {
+    width: 90%;
+    padding: 24px;
+    font-size: 20px;
+  }
+
+  .customBox {
+    width: 90vw;
+  }
+
+  .textTime {
+    font-size: 36px;
+    font-weight: 900;
+  }
+
+  .textTime + h2 {
+    font-size: 12px;
+    font-weight: 900;
+  }
+}

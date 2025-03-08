@@ -1,0 +1,150 @@
+.footerBackground {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.8)
+    ),
+    linear-gradient(180deg, rgba(0, 10, 255, 0.5) 0%, rgba(0, 0, 0, 0) 136.61%),
+    url(/assets/bG14.jpeg);
+  color: white;
+  background-size: auto, cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.horizontalDivider {
+  background: #0000001a;
+  height: 1px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.footerContent {
+  margin: 0 230px;
+  margin-top: 104px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 100px;
+}
+
+.logoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  height: 90px;
+  margin-bottom: 15px;
+}
+
+.iconContainer {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.infoSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.contactInfo {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  margin-top: 40px;
+}
+
+.alignStart {
+  align-items: flex-start;
+}
+
+.addressInfo {
+  width: 362px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.icon {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+}
+
+.subscribeBox {
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
+  border: 1px solid white;
+  border-radius: 10px;
+  background: transparent;
+  padding: 10px;
+}
+
+.subscribeBox input {
+  flex: 1;
+  height: 56px;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+.subscribeIcon {
+  color: white;
+}
+
+.copyRight {
+  width: 100%;
+  background: #000;
+  text-align: center;
+  line-height: 14px;
+  font-size: 18px;
+  padding: 30px;
+  margin-top: 20px;
+}
+
+.subscribeSection {
+  max-width: 410px;
+}
+
+@media (max-width: 1200px) {
+  .footerContent {
+    margin: 0;
+  }
+  .logo {
+    margin-top: 40px;
+  }
+  .subscribeSection {
+    margin-top: 40px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subscribeBox {
+    width: 90%;
+  }
+
+  .infoSection {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .subscribeSection {
+    margin-top: 68px;
+  }
+}
