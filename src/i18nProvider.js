@@ -1,13 +1,20 @@
 "use client";
 import { NextIntlClientProvider } from "next-intl";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { getMessages, locales } from "./i18n";
 
-// Tạo context để lưu trạng thái locale
 const LocaleContext = createContext();
 
 export function I18nProvider({ children }) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <I18nProviderContent>{children}</I18nProviderContent>
+    </Suspense>
+  );
+}
+
+function I18nProviderContent({ children }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -36,7 +43,6 @@ export function I18nProvider({ children }) {
   );
 }
 
-// Hook để sử dụng trong component
 export function useI18n() {
   return useContext(LocaleContext);
 }
