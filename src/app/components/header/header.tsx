@@ -3,6 +3,7 @@ import { MoreIcon } from "@/components/Icons/MoreIcon";
 import { White_logoIcon2 } from "@/components/Icons/White_logoIcon2";
 import { useState } from "react";
 import { X, Check } from "lucide-react";
+import { useTranslations } from 'next-intl';
 import {
   Popover,
   PopoverContent,
@@ -10,15 +11,17 @@ import {
 } from "@/components/ui/popover";
 import Image from "next/image";
 import styles from "./index.module.css";
-
-const MENU_ITEMS = [
-  { text: "ABOUT US" },
-  { text: "GAMES" },
-  { text: "PARTNERS" },
-  { text: "CONTACT US" },
-];
+import { useI18n } from "@/i18nProvider";
 
 export default function Header() {
+  const t = useTranslations("Header");
+  const { locale, changeLanguage } = useI18n();
+  const MENU_ITEMS = [
+    { text: t('aboutUs') },
+    { text: t('games') },
+    { text: t('partners') },
+    { text: t('contactUs') },
+  ];
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
 
   return (
@@ -43,21 +46,38 @@ export default function Header() {
             <Popover>
               <PopoverTrigger asChild>
                 <div>
-                  <Image
-                    src="/assets/78e0c9406a81fbb09f1d7a70fa3ac969.png"
-                    alt="Select language"
-                    width={40}
-                    height={40}
-                  />
+                  {
+                    locale === "en" ?
+                      <Image
+                        src="/assets/78e0c9406a81fbb09f1d7a70fa3ac969.png"
+                        alt="Select language"
+                        width={40}
+                        height={40}
+                      />
+                      :
+                      <Image
+                        src="/assets/1d84c4886fb2e673f2f9443c82a6404b.png"
+                        alt="Select language"
+                        width={40}
+                        height={40}
+                      />
+                  }
                 </div>
               </PopoverTrigger>
               <PopoverContent className="w-80">
                 <div className={styles.languageMenu}>
 
-                  <div className={styles.languageOption}>
+                  <div className={styles.languageOption}
+                    onClick={
+                      () => {
+                        locale === "en" && changeLanguage("vi")
+                      }
+                    }
+                  >
                     <div className={styles.iconCheck}>
-
-                      {/* <Check /> */}
+                      {locale === "vi" &&
+                        <Check />
+                      }
                     </div>
                     <Image
                       src="/assets/1d84c4886fb2e673f2f9443c82a6404b.png"
@@ -65,13 +85,18 @@ export default function Header() {
                       width={40}
                       height={40}
                     />
-                    <label>Vietnamese</label>
+                    <label>{t('vietnamese')}</label>
                   </div>
                   <div className={styles.border}></div>
-                  <div className={styles.languageOption}>
+                  <div className={styles.languageOption} onClick={
+                    () => {
+                      locale === "vi" && changeLanguage("en")
+                    }
+                  }>
                     <div className={styles.iconCheck}>
-
-                      <Check />
+                      {locale === "en" &&
+                        <Check />
+                      }
                     </div>
                     <Image
                       src="/assets/78e0c9406a81fbb09f1d7a70fa3ac969.png"
@@ -79,7 +104,7 @@ export default function Header() {
                       width={40}
                       height={40}
                     />
-                    <label>English</label>
+                    <label>{t('english')}</label>
                   </div>
                 </div>
 

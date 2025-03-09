@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
 import classes from "./index.module.css";
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { useMediaQuery } from "react-responsive";
@@ -9,6 +10,7 @@ import { Playfair_Display } from "next/font/google";
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
 export function CarouselDemo() {
+  const t = useTranslations("Banner");
   const initialTime = 30 * 24 * 60 * 60 + 18 * 60 * 60 + 20 * 60 + 11;
   const [timeLeft, setTimeLeft] = React.useState(initialTime);
 
@@ -61,7 +63,7 @@ export function CarouselDemo() {
           className={`${classes.bannerTitle} ${classes["font-white-center"]}`}
           style={{ fontFamily: playfair.style.fontFamily }}
         >
-          We’re Getting Ready
+          {t("title")}
         </h2>
 
         <div className={`${classes.time} ${classes.flexCenter}`}>
@@ -72,7 +74,7 @@ export function CarouselDemo() {
             >
               {days}
             </h2>
-            <h2 style={{ fontWeight: "600" }}>Days</h2>
+            <h2 style={{ fontWeight: "600" }}>{t("days")}</h2>
           </div>
           <div
             className={classes.textTime}
@@ -87,7 +89,7 @@ export function CarouselDemo() {
             >
               {hours}
             </h2>
-            <h2 style={{ fontWeight: "600" }}>Hours</h2>
+            <h2 style={{ fontWeight: "600" }}>{t("hours")}</h2>
           </div>
           <div
             className={classes.textTime}
@@ -102,7 +104,7 @@ export function CarouselDemo() {
             >
               {minutes}
             </h2>
-            <h2 style={{ fontWeight: "600" }}>Minutes</h2>
+            <h2 style={{ fontWeight: "600" }}>{t("mins")}</h2>
           </div>
           <div
             className={classes.textTime}
@@ -117,21 +119,17 @@ export function CarouselDemo() {
             >
               {seconds}
             </h2>
-            <h2 style={{ fontWeight: "600" }}>Seconds</h2>
+            <h2 style={{ fontWeight: "600" }}>{t("secs")}</h2>
           </div>
         </div>
-
         <h3 className={classes.title}>
-          We will back to something amazing. Getting the latest updates about
-          our games. Please sign up to our newsletter.
+          {t("desc")}
         </h3>
-
         <div className={classes.customBox}>
-          <input placeholder="Enter your email" />
+          <input placeholder={t("enterMail")} />
           <ArrowRight />
         </div>
       </div>
-
       <Image
         className={classes.fixedPosition}
         src={"/assets/ongTien1.png"}

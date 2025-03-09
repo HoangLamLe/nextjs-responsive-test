@@ -8,6 +8,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { useMediaQuery } from "react-responsive";
+import { useTranslations } from 'next-intl';
 import { VuesaxBoldPeopleIcon } from "@/components/Icons/VuesaxBoldPeopleIcon";
 import { VuesaxBoldPenTool2Icon } from "@/components/Icons/VuesaxBoldPenTool2Icon";
 import { VuesaxBoldCalendarTickIcon } from "@/components/Icons/VuesaxBoldCalendarTickIcon";
@@ -90,29 +91,29 @@ const cards = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
 ];
+
 const features = [
   {
     icon: VuesaxBoldCalendarTickIcon,
-    title: "24-Hour",
-    description:
-      "24/7 access ensures operators' businesses run smoothly all year long.",
+    title: "24h",
+    description: "24hDesc",
   },
   {
     icon: VuesaxBoldPenTool2Icon,
-    title: "Design",
-    description:
-      "Combining imaginative universes, play dynamics, and unprecedented gameplay, our games transcend the boundaries of the virtual world by weaving innovative gameplay.",
+    title: "design",
+    description: "designDesc",
   },
   {
     icon: VuesaxBoldPeopleIcon,
-    title: "Team",
-    description:
-      "Etech is an award-winning, international studio of designers, artists, animators and producers that create content for the biggest names in film and video games.",
+    title: "team",
+    description: "teamDesc",
   },
-];
+]
 
 export default function Session() {
   const isMobile = useMediaQuery({ query: "(max-width: 760px)" });
+  const t = useTranslations("Session");
+  
 
   const renderItems = (items: typeof cards) =>
     items.map((item) => (
@@ -138,17 +139,10 @@ export default function Session() {
               className={styles.aboutUs}
               style={{ fontFamily: playfair.style.fontFamily }}
             >
-              About Us
+              {t("aboutUs")}
             </h2>
             <p style={{ marginTop: "40px" }}>
-              Browse our selection of free online games and have a great time
-              without leaving the site! Our Kids Games option also includes game
-              reviews, extensive game cheats and walkthroughs, and much more. We
-              have exclusive free downloads, videos, and articles as well. Etech
-              reviews the most popular kids games from all the most popular
-              video gaming platforms, so you don’t need to search around for fun
-              anywhere else on the Internet. Explore a whole new world of gaming
-              on Etech.
+              {t("desc")}
             </p>
           </div>
           <div className={styles.userStats}>
@@ -156,23 +150,32 @@ export default function Session() {
               <p className={styles.statText}>
                 600<span style={{ fontSize: "40px" }}>M</span>+
               </p>
-              <p>Users</p>
+              <p>
+                {t("users")}
+
+              </p>
             </div>
             <div>
               <p className={styles.statText}>135+</p>
-              <p>Games</p>
+              <p>
+                {t("games")}
+
+              </p>
             </div>
           </div>
         </div>
         <div className={styles.iconSection}>
           {features.map((item) => (
+            
             <div className={styles.flexContainerStart} key={item.title}>
               <div className={styles.bgIcon}>
                 <item.icon style={{ width: "24px" }} />
               </div>
               <div>
-                <p className={styles.iconText}>{item.title}</p>
-                <p>{item.description}</p>
+                <>
+                </>
+                <p className={styles.iconText}>{t(item.title)}</p>
+                <p>{t(item.description)}</p>
               </div>
             </div>
           ))}
@@ -203,13 +206,11 @@ export default function Session() {
             fontFamily: playfair.style.fontFamily,
           }}
         >
-          Our Games
+          {t("ourGames")}
+
         </p>
         <p className={styles.centeredContainer}>
-          As a pioneer of mobile app gamification, we take pride in originality
-          and individuality, providing global players with state-of-the-art
-          games that feature splendid storylines, sensational sound effects, and
-          magnificent animation that never cease to impress.
+          {t("ourGamesDesc")}
         </p>
       </div>
       <div className={styles.gameSection}>
@@ -241,7 +242,8 @@ export default function Session() {
               marginBottom: "80px"
             }}
           >
-            Our Partners
+            {t("ourPartners")}
+
           </p>
         </div>
         <Carousel
