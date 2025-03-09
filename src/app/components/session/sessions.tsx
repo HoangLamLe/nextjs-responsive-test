@@ -2,16 +2,13 @@
 import Image from "next/image";
 import styles from "./index.module.css";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import { useMediaQuery } from "react-responsive";
 import { useTranslations } from 'next-intl';
 import { VuesaxBoldPeopleIcon } from "@/components/Icons/VuesaxBoldPeopleIcon";
 import { VuesaxBoldPenTool2Icon } from "@/components/Icons/VuesaxBoldPenTool2Icon";
 import { VuesaxBoldCalendarTickIcon } from "@/components/Icons/VuesaxBoldCalendarTickIcon";
+import  EmblaCarousel  from "../../../components/carousel/EmblaCarousel";
+
 import { MapIcon } from "@/components/Icons/MapIcon";
 import { Playfair_Display } from "next/font/google";
 
@@ -182,19 +179,21 @@ export default function Session() {
         </div>
       </div>
       <div className={styles.relativeMarginTop}>
-        <Image
-          src={"/assets/illustrator.png"}
-          alt="banner"
-          width={"533"}
-          className={`${styles.autoMargin} ${styles.witch}`}
-          height={0}
-        />
+      <Image
+        src="/assets/illustrator.png"
+        alt="banner"
+        width={0}
+        height={0}
+        sizes="100vw"
+        style={{ width: isMobile ? "40%" : "533px", height: "auto" }}
+        className={`${styles.autoMargin} ${styles.witch}`}
+      />
         <Image
           src={"/assets/Pin-map - Copy.png"}
           alt=""
-          width={1000}
+          width={0}
           height={200}
-          style={{ position: "absolute", top: "0", left: "20%" }}
+          style={{ position: "absolute", top: "0", left: "20%", width: isMobile ? "80%" : "1000px" }}
         />
         <MapIcon className={styles.earthIcon} />
       </div>
@@ -246,45 +245,8 @@ export default function Session() {
 
           </p>
         </div>
-        <Carousel
-          style={{ width: "100%" }}
-          opts={{
-            align: "start",
-          }}
-        >
-          <CarouselContent style={{ width: "100%" }}>
-            {[
-              "/assets/rectangle56.png",
-              "/assets/rectangle55.png",
-              "/assets/rectangle54.png",
-              "/assets/rectangle53.png",
-              "/assets/rectangle52.png",
-              "/assets/rectangle56.png",
-              "/assets/rectangle53.png",
-              "/assets/rectangle54.png",
-            ].map((item, index) => (
-              <CarouselItem key={index} className="md:basis-1/4 lg:basis-1/5">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <div style={{ width: "150px", height: "auto" }}>
-                    <Image
-                      src={item}
-                      alt=""
-                      width={100}
-                      height={100}
-                      layout="responsive"
-                    />
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+        {/* s */}
+        <EmblaCarousel/>
       </div>
     </div>
   );

@@ -70,7 +70,9 @@ export default function Header() {
                   <div className={styles.languageOption}
                     onClick={
                       () => {
-                        locale === "en" && changeLanguage("vi")
+                        if (locale === "en") {
+                          changeLanguage("vi")
+                        }
                       }
                     }
                   >
@@ -90,7 +92,9 @@ export default function Header() {
                   <div className={styles.border}></div>
                   <div className={styles.languageOption} onClick={
                     () => {
-                      locale === "vi" && changeLanguage("en")
+                      if (locale === "vi") {
+                        changeLanguage("en")
+                      }
                     }
                   }>
                     <div className={styles.iconCheck}>
